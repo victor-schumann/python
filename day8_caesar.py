@@ -1,15 +1,10 @@
 # --- functions ---
 def encrypt(text, shift, alphabet):
-    message = list(text)
-    for j in range(len(text)):
-        # for letter in alphabet:
-        #     if digit == letter:
-        #         digit = alphabet[set(letter)+shift]
-        for i in range(0, 27):
-            if message[j] == alphabet[i]:
-                message[j] = alphabet[i+shift]
-
-    return message
+    test = []
+    for letter in message:
+        if letter in alphabet:
+            index = alphabet.index(letter)
+            test.append(alphabet[index+shift])
 
 # --- var declaration ---
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
@@ -17,16 +12,31 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 # --- code ---
 #direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 #text = input("Type your message:\n").lower()
-text = "hello"
+text = "fghi"
+message = [x for x in text]
+print(f"\n{message}\n")
 shift = int(input("Type the shift number:\n"))
 
-print(text)
-message = encrypt(text, shift, alphabet)
-print(message)
-#TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
+test = []
+for letter in message:
+    if letter in alphabet:
+        index = alphabet.index(letter)
+        test.append(alphabet[index+shift])
+print(f"\n{message}\n")
+print(f"\n{test}\n")
 
 
-    #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
+# for a in range(len(message)):
+#     if message[a] in alphabet:
+#         print(a)
+# print(f"\n{message}\n")
+
+#TODO-1: 
+    #Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
+
+
+#TODO-2: 
+    #Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
     #e.g. 
     #plain_text = "hello"
     #shift = 5
