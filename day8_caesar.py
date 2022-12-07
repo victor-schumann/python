@@ -1,7 +1,7 @@
 # --- functions ---
-def encrypt(text, shift):
+def encrypt(text, shift, alphabet):
     message = list(text)
-    for j in range(0, len(message)):
+    for j in range(len(text)):
         # for letter in alphabet:
         #     if digit == letter:
         #         digit = alphabet[set(letter)+shift]
@@ -16,10 +16,12 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 # --- code ---
 #direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
+#text = input("Type your message:\n").lower()
+text = "hello"
 shift = int(input("Type the shift number:\n"))
 
-message = encrypt(text, shift)
+print(text)
+message = encrypt(text, shift, alphabet)
 print(message)
 #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
