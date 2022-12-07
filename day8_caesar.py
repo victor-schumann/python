@@ -1,29 +1,30 @@
 # --- functions ---
 def encrypt(text, shift, alphabet):
-    test = []
+    caesar = []
+    message = [x for x in text]
     for letter in message:
-        if letter in alphabet:
+        if letter == ' ':
+            caesar.append(' ')
+        
+        elif letter in alphabet:
             index = alphabet.index(letter)
-            test.append(alphabet[index+shift])
-
+            if index+shift < 26:
+                caesar.append(alphabet[index+shift])
+            else:
+                caesar.append(alphabet[index+shift-26])
+    return caesar
+    
 # --- var declaration ---
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 # --- code ---
 #direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-#text = input("Type your message:\n").lower()
-text = "fghi"
-message = [x for x in text]
-print(f"\n{message}\n")
+text = input("Type your message:\n").lower()
+print(f"\n{text}\n")
 shift = int(input("Type the shift number:\n"))
 
-test = []
-for letter in message:
-    if letter in alphabet:
-        index = alphabet.index(letter)
-        test.append(alphabet[index+shift])
+message = ''.join(encrypt(text, shift, alphabet))
 print(f"\n{message}\n")
-print(f"\n{test}\n")
 
 
 # for a in range(len(message)):
