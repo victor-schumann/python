@@ -4,7 +4,8 @@ import support
 #1 - Randomly choose a word from the word_list.
 hangmen = [support.hangman0, support.hangman1, support.hangman2, support.hangman3, support.hangman4, support.hangman5, support.hangman6, " "]
 
-word_list = ["rock", "baboon", "butterfly"]
+word_list = ["onix", "ivysaur", "aerodactyl"]
+tip_list = ["rock!", "plant!", "flying!"]
 r_index = random.randint(0,2)
 word = word_list[r_index]
 sketch = []
@@ -13,12 +14,13 @@ for x in word:
     sketch.append(" __")
 
 #2 - Print the menu dinamically, according the chosen word.
-print("  --- WELCOME TO THE HANGMAN ---")
-lvl = ["\t\t--- EASY LEVEL ---", "\t\t--- MEDIUM LEVEL ---", "\t\t--- HARD LEVEL ---"]
+print("\n --- WELCOME TO THE POKEMON HANGMAN ---")
+lvl = [" --- EASY LEVEL ---", " --- MEDIUM LEVEL ---", " --- HARD LEVEL ---"]
 
 print(lvl[r_index])
 print(hangmen[0])
-print(" __"*len(word))
+print("\n"+" __"*len(word))
+print("\n Tip = " + tip_list[r_index])
 
 #T3 - Ask the user to guess a letter.
 guess = support.isLetter()
