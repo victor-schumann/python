@@ -75,7 +75,8 @@ symbols = [' ', '!', '#', '$', '%', '&', '(', ')', '*', '+', ',']
 controlo = 0
 print(support.caesar)
 print(support.cipher)
-
+#TODO: Add big shift numbers support.
+#TODO: Createa a while loop to allow the user to use the program again and again.
 while controlo == 0:
     direction = input("\nType 'E' to encrypt, type 'D' to decrypt (E/D): ").lower()
 
