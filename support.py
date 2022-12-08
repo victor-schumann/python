@@ -1,9 +1,6 @@
 #personal library to list variables, functions, ASCII images, etc.
 
 #--- functions ---
-def printScore(hangman_vector, errors):
-    print(hangman_vector[errors])
-    
 def letterInWord(sketch, word, guess):
     i=0
     for letter in word:
@@ -16,7 +13,10 @@ def letterInWord(sketch, word, guess):
 
     return i
 
-def isLetter():
+def printScore(hangman_vector, errors):
+    print(hangman_vector[errors])
+
+def isLetter(guess):
     counter = 0
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     while counter==0:
@@ -24,9 +24,21 @@ def isLetter():
         for a in letters:
             if a==guess:
                 counter+=1
-    return guess
+    return counter
 
+def isNumber(guess):
+    counter = 0
+    while counter == 0:
+        guess = input("\nInput a valid shift number: ")
+        if int(guess) <= 0:
+            guess = input("That is not a valid shift number! Try again: ")
+    return counter
+        
 #-- variables --
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = [' ', '!', '#', '$', '%', '&', '(', ')', '*', '+', ',']
+
 hangman0 = '''
       _______
      |/      |
@@ -150,3 +162,4 @@ cipher = '''
        | |                    
        |_|                      
 '''
+logo = caesar + cipher
