@@ -77,19 +77,26 @@ print(support.caesar)
 print(support.cipher)
 #TODO: Add big shift numbers support.
 #TODO: Createa a while loop to allow the user to use the program again and again.
-while controlo == 0:
-    direction = input("\nType 'E' to encrypt, type 'D' to decrypt (E/D): ").lower()
+continue = True
+while continue == True:
+    while controlo == 0:
+        direction = input("\nType 'E' to encrypt, type 'D' to decrypt (E/D): ").lower()
 
-    if direction == 'e' or direction == 'd':
-        controlo+=1
-        text = input("\nType your message: ").lower()
-        shift = int(input("\nType the shift number: "))
-        cipher(text, shift, direction)
-        
-    else:
-        controlo=0
-        print("\nThat is not a valid option. Would you like to try again?")
-        # ask = input("\nType 'E' to encrypt, type 'D' to decrypt (E/D): ").lower()
+        if direction == 'e' or direction == 'd':
+            controlo+=1
+            text = input("\nType your message: ").lower()
+            shift = int(input("\nType the shift number: "))
+            cipher(text, shift, direction)
+            
+        else:
+            controlo=0
+            print("\nThat is not a valid option. Would you like to try again?")
+            # ask = input("\nType 'E' to encrypt, type 'D' to decrypt (E/D): ").lower()
+    controlo2 = input("Would you like to TERMINATE the program? (Y/n): ").lower()
+    if controlo2 == 'y':
+        continue = False
+        print("\nGoodbye!")
+
 
 #FAQ:
     #https://stackoverflow.com/questions/5618878/how-to-convert-list-to-string
