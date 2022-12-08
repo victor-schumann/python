@@ -1,19 +1,29 @@
+import support
+
 # --- functions ---
 def cipher(start_text, shift_int, cipher_direction):
     end_text = ""
     if cipher_direction == 'd':
         shift_int *= -1
 
-    for letter in start_text:
-        if letter == ' ':
-            end_text+=letter
-        else:
-            position = alphabet.index(letter)
+    for char in start_text:
+        if char in alphabet:
+            position = alphabet.index(char)
             new_position = position+shift_int
             end_text+=alphabet[new_position]
 
-    print(shift_int)
-    print(f"The final message is: \n\t{end_text.upper()}")
+        else:
+            end_text += char
+
+        # if char in numbers or char in symbols:
+        #     end_text+=char
+
+        # else:
+        #     position = alphabet.index(char)
+        #     new_position = position+shift_int
+        #     end_text+=alphabet[new_position]
+
+    print(f"\nThe final message is: {end_text.upper()}")
 
 def encrypt(text, shift, alphabet):
     caesar = ''
@@ -58,9 +68,14 @@ def decrypt(text, shift, alphabet):
 
 # --- var declaration ---
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = [' ', '!', '#', '$', '%', '&', '(', ')', '*', '+', ',']
 
 # --- code ---
 controlo = 0
+print(support.caesar)
+print(support.cipher)
+
 while controlo == 0:
     direction = input("\nType 'E' to encrypt, type 'D' to decrypt (E/D): ").lower()
 
