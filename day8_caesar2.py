@@ -72,30 +72,36 @@ numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 symbols = [' ', '!', '#', '$', '%', '&', '(', ')', '*', '+', ',']
 
 # --- code ---
-controlo = 0
 print(support.caesar)
 print(support.cipher)
+should_end = False
+controlo = 0
+#encoded_num = 0
 #TODO: Add big shift numbers support.
 #TODO: Createa a while loop to allow the user to use the program again and again.
-continue = True
-while continue == True:
-    while controlo == 0:
-        direction = input("\nType 'E' to encrypt, type 'D' to decrypt (E/D): ").lower()
 
-        if direction == 'e' or direction == 'd':
-            controlo+=1
-            text = input("\nType your message: ").lower()
-            shift = int(input("\nType the shift number: "))
-            cipher(text, shift, direction)
-            
-        else:
-            controlo=0
-            print("\nThat is not a valid option. Would you like to try again?")
-            # ask = input("\nType 'E' to encrypt, type 'D' to decrypt (E/D): ").lower()
-    controlo2 = input("Would you like to TERMINATE the program? (Y/n): ").lower()
-    if controlo2 == 'y':
-        continue = False
-        print("\nGoodbye!")
+#while not should_end:
+while controlo == 0:
+    #print(f"Processed messages: {encoded_num}")
+    direction = input("\nType 'E' to encrypt, type 'D' to decrypt (E/D): ").lower()
+
+    if direction == 'e' or direction == 'd':
+        controlo+=1
+        text = input("Type your message: ").lower()
+        shift = int(input("Type the shift number: "))
+        cipher(text, shift, direction)
+        encoded_num+=1
+    else:
+        controlo=0
+        print("That is not a valid option. Would you like to try again?")
+
+    #     restart = input("\nWould you like to RESTART the program? (Y/N): ").lower()
+
+    # if restart == 'n':
+    #     should_end = True
+    #     print("\nGoodbye!")
+    # else:
+    #     should_end = False
 
 
 #FAQ:
